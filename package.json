@@ -1,0 +1,32 @@
+{
+  "name": "Exercise-Tracker",
+  "version": "1.0.0",
+  "description": "This repository follows Free Code Camp guidelines for building an exercise tracker.",
+  "main": "app.js",
+  "scripts": {
+      "start": "node app.js",
+      "devstart": "nodemon app.js",
+      "serverstart": "DEBUG=Exercise-Tracker:* npm run devstart"
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OutlawJessie/Exercise-Tracker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/OutlawJessie/Exercise-Tracker/issues"
+  },
+  "homepage": "https://github.com/OutlawJessie/Exercise-Tracker#readme",
+  "dependencies": {
+    "async": "^3.2.0",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.25",
+    "nodemon": "^2.0.4"
+  }
+}
