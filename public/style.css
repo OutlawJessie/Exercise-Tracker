@@ -22,5 +22,31 @@ h1, h2  {
 }
 
 code {
-    background-color: rgb(230,230,230);
+    background-color: yellow;
 }
+
+form {
+    background-color: green;
+    padding: 1rem;
+    margin: 1rem;
+    border: 2px solid black;
+    border-radius: 1rem;
+    width: 30vw;
+}
+
+form p {
+    color: white;
+}
+form label {
+    background-color: yellow;
+}
+
+.forms {
+    display: flex;
+    justify-content: center;
+    background-color: beige;
+    flex-wrap: wrap;
+}
+
+
+

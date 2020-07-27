@@ -11,6 +11,43 @@
     <header>
       <h1>API Project: Exercise Tracker</h1>
     </header>
+
+    <div class="forms">
+      <section class="user-creator">
+	<form method="POST" action="/api/exercise/new_user">
+	  <p>Create a New user</p>
+	  <label for="add_user">POST /api/exercise/new-user</label>
+	  <br>
+	  <input id="add_user" type="text" name="new_user" placeholder="username">
+	  <br>
+	  <button type="submit">Submit</button>
+	</form>    
+      </section>
+    
+      <section class="exercise-creator">
+	<form method="POST" action="/api/exercise/add_exercise">
+	  <p>Add Exercises</p>
+	  <label>POST /api/exercise/add</label>
+	  <br>
+	  <input id="userId" type="text" name="userId" placeholder="userId*">
+	  <br>
+	  <input id="description" type="text" name="description" placeholder="description*">
+	  <br>
+	  <input id="duration" type="text" name="duration" placeholder="duration* (mins)">
+	  <br>
+	  <input id="date" type="text" name="date" placeholder="date (yyyy-mm-dd)">
+	  <br>
+	  <button type="submit">Submit</button>
+	</form>    
+      </section>
+
+      <section class="info">
+	<p>GET users's exercise log: <code>GET /api/exercise/log?{userId}[&from][&to][&limit]<code></p>
+	<p>{ } = required, [ ] = optional</p>
+	<p>from, to = dates (yyyy-mm-dd); limit = number</p>
+      </section>
+    </div>
+
 <!--
     <section class="stories">
       <h2>User Stories:</h2>      
