@@ -7,6 +7,11 @@ var user_controller = require('../controllers/userController');
 
 // -------------ROUTES-------------
 
+
+// GET request for single user.
+router.get('/exercise/log', user_controller.get_single_user);
+
+
 // GET request for list of all users.
 router.get('/exercise/users', user_controller.user_list);
 
