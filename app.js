@@ -2,7 +2,7 @@
 var express = require("express");
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
-
+var path = require('path');
 
 // Load controller(s).
 
@@ -44,14 +44,24 @@ app.route('/')
   });
 
 
+var testRouter = require('./routes/test');
+var apiRouter = require('./routes/apiRouter');
+
+
+app.use('/test', testRouter);
+app.use('/api', apiRouter);
+
 /*test */
+/*
 app.route('/test')
     .get(function(req, res) {
 	res.send('working');
     });
-
+*/
 
 // Listen on port 3000.
 app.listen(process.env.PORT || 3000, function () {
   console.log('server.js is listening on port 3000');
 });
+
+module.exports = app;
