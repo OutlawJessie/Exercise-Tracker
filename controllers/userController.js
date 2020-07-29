@@ -31,7 +31,7 @@ exports.post_user = function(req, res, next){
 	    }
 	});
     
-}
+};
 
 // Display information for single user.
 exports.get_single_user = function (req, res, next) {
