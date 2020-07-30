@@ -1,4 +1,5 @@
 var User = require('../models/user')
+var Exercise = require('../models/exercise')
 var async = require('async')
 
 
@@ -35,11 +36,51 @@ exports.post_user = function(req, res, next){
 
 // Display information for single user.
 exports.get_single_user = function (req, res, next) {
+
+    // TODO: validate/sanitize.
+    
+    
     if (req.query.userId){
-	res.json({'result': 'single user working'});
-	console.log(req.query.userId);
+
+	// Check if user id is in database.
+	User.findOne({'_id': req.query.userId}) // change to findById?
+	    .exec( function (err, user_info) {
+		if (err) {
+		    return next(err);
+		}
+
+		// No error. Check if found user info.
+		if (user_info){
+
+		    // Use this user's user id to
+		    // find all their workout logs
+		    // sorted by date.
+		    Exercise.find({'userId': user_info._id })
+		        .sort('-date') 
+			.exec(function (err, exercise_workouts) {
+			    if (err) {return next(err);}
+
+			    // No error. So copy user info
+			    // to return json response that shows
+			    // this user plus their workout log.
+			    
+			    console.log(user_info);
+			    console.log('count is: ', exercise_workouts.length);
+			    console.log(exercise_workouts[1].date >= Date.now());
+			    console.log(exercise_workouts);
+			    res.json({'result': exercise_workouts});
+
+			});
+
+		    
+		} else {
+		    res.json({'error': 'User Id not found in database.'});
+		}
+	    });
+
+
     } else {
-	res.json({'result': 'not working'});	
+	res.json({'error': 'Must supply userId.'});	
     }
 };
 
