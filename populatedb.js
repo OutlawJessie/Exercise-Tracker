@@ -50,6 +50,7 @@ function userCreate(userName, cb) {
 
 }
 
+
 /*
 Function for creating exercise.
 
@@ -68,6 +69,8 @@ function exerciseCreate(uid, desc, dur, datePerformed, cb) {
     };
     if (datePerformed != false){
 	exerciseDetail.date = datePerformed;
+    } else {
+	exerciseDetail.date = new Date().toISOString().slice(0,10); // gives yyyy-mm-dd format for today
     }
 
     // Create new exercise mongodb document.
@@ -114,11 +117,26 @@ function createExercises(cb) {
 	    exerciseCreate(users[0], 'Frolicking on the back lawn', '10', '2020-07-27', callback);
 	},
 	function(callback) {
+	    exerciseCreate(users[0], 'Eating kibble', '4', '2019-04-27', callback);
+	},
+	function(callback) {
+	    exerciseCreate(users[0], 'Chasing cats', '6', '2015-07-27', callback);
+	},
+	function(callback) {
+	    exerciseCreate(users[0], 'Running', '10', '2016-10-27', callback);
+	},	
+	function(callback) {
 	    exerciseCreate(users[1], 'Scaling buildings', '2', '1970-11-02', callback);
 	},
 	function(callback) {
 	    exerciseCreate(users[2], 'Punching Robin', '3', false, callback);
 	},
+	function(callback) {
+	    exerciseCreate(users[2], 'Whipping Joker', '2', '1999-10-04', callback);
+	},
+	function(callback) {
+	    exerciseCreate(users[2], 'Outrunning the law', '70', '1995-01-14', callback);
+	},	
 	function(callback) {
 	    exerciseCreate(users[3], 'Shooting 3 pointers', '70', '2009-06-04', callback);
 	},
