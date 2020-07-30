@@ -43,8 +43,18 @@ exports.get_single_user = function (req, res, next) {
     }
 };
 
-// Display list of all users.
+// Display array of all users.
 exports.user_list = function (req, res, next) {
-    res.json({'users':'will show all users.'});
+    // Find all users...
+    User.find()
+	.exec( function(err, allUsers){
+	    if (err) return next(err);
+
+	    // No errors, so display array
+	    // of all users.
+	    res.json(allUsers);
+	});
+
+
 };
 
