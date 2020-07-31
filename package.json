@@ -4,10 +4,9 @@
   "description": "This repository follows Free Code Camp guidelines for building an exercise tracker.",
   "main": "app.js",
   "scripts": {
-      "start": "node app.js",
-      "devstart": "nodemon app.js",
-      "serverstart": "DEBUG=Exercise-Tracker:* npm run devstart"
-
+    "start": "node app.js",
+    "devstart": "nodemon app.js",
+    "serverstart": "DEBUG=Exercise-Tracker:* npm run devstart"
   },
   "repository": {
     "type": "git",
