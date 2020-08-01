@@ -11,11 +11,11 @@ exports.post_user = function(req, res, next){
     
     // Create new user object.
     var userObj = new User(
-	{user_name: req.body.new_user}
+	{username: req.body.new_user}
     );
 
     // Check if username exists in db ....
-    User.findOne({ 'user_name': req.body.new_user })
+    User.findOne({ 'username': req.body.new_user })
         .exec( function(err, found_user) {
             if (err) { return next(err); }
             if (found_user) {
@@ -26,7 +26,7 @@ exports.post_user = function(req, res, next){
 		userObj.save(function (err) {
 		    if (err) { return next(err); }
 		    // User object saved. Display new user and id field.
-		    res.json({"username": userObj.user_name, "_id": userObj._id.toString() } );
+		    res.json({"username": userObj.username, "_id": userObj._id.toString() } );
 		});
 	    }
 	});
@@ -60,7 +60,7 @@ Inputs: user     -- user object.
 Example Output:
 {
   _id: 5g23251096b6f79c66ef241e,
-  user_name: 'Some User Name',
+  username: 'Some User Name',
   count: 2,
   log: [
     {
@@ -83,7 +83,7 @@ const makeWorkoutLog = (user, workouts, start, end, limit) => {
     // Create log info and extract user information.
     let logInfo = {};
     logInfo['_id'] = user._id;
-    logInfo['user_name'] = user.user_name;
+    logInfo['username'] = user.username;
     
     // Filter workouts by start, end, and limit and
     // only show description, duration, and date for each workout.

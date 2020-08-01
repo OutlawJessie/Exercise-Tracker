@@ -34,7 +34,7 @@ Function for creating user.
 function userCreate(userName, cb) {
 
     // Create new user mongodb document.
-    var newUser = new User( { user_name: userName} );
+    var newUser = new User( { username: userName} );
 
     // Try to save it, or return an error.
     newUser.save(function (err) {
