@@ -21,9 +21,7 @@ h1, h2  {
     text-align: center;
 }
 
-code {
-    background-color: yellow;
-}
+
 
 form {
     background-color: green;
@@ -37,16 +35,65 @@ form {
 form p {
     color: white;
 }
-form label {
-    background-color: yellow;
-}
+
+
 
 .forms {
     display: flex;
     justify-content: center;
     background-color: beige;
     flex-wrap: wrap;
+    border: 1px solid black;
+    border-radius: 2rem;
+    padding-top: 2em;
+}
+
+form input {
+    width: 90%;
+    padding: 0.2rem;
+}
+
+form label code {
+    width: 100%;
 }
 
 
+code {
+    background-color: yellow;
+}
 
+/* Mobile devices. */
+@media (max-width:480px)  { 
+
+    .container {
+	width: 90vw;
+    }
+
+    form {
+	width: 80vw;
+    }
+
+    form label code {
+	font-size: 1.8rem;
+    }
+    
+
+}
+
+/*iPads and tablets.*/
+@media (max-width:768px)  {
+
+    .container {
+	width: 80vw;
+    }
+
+    form {
+	width: 60vw;
+    }
+
+    form label code {
+	font-size: 2rem;
+    }
+    
+
+}

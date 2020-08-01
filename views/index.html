@@ -17,7 +17,7 @@
 	<!-- Allow users to POST at /api/exercise/new-user in url -->
 	<form method="POST" action="/api/exercise/new-user">
 	  <p>Create a New user</p>
-	  <label for="add_user">POST /api/exercise/new-user</label>
+	  <label for="add_user"><code>POST /api/exercise/new-user</code></label>
 	  <br>
 	  <!-- body.request.new_user will contain info -->
 	  <input id="add_user" type="text" name="new_user" placeholder="username">
@@ -29,7 +29,7 @@
       <section class="exercise-creator">
 	<form method="POST" action="/api/exercise/add">
 	  <p>Add Exercises</p>
-	  <label>POST /api/exercise/add</label>
+	  <label><code>POST /api/exercise/add</code></label>
 	  <br>
 	  <input id="userId" type="text" name="userId" placeholder="userId*">
 	  <br>
