@@ -8,14 +8,20 @@ exports.post_user = function(req, res, next){
 
     // TODO: validate/sanitize data.
 
-    
+    // Define a new user from the request.
+    // If someone manually fills out the form, this will be req.body.username,
+    // but Free code camp sends automated post requests as 'username'.
+    let new_user = (typeof req.body.username !== 'undefined' && req.body.username)
+	? (req.body.username) : (req.body.new_user);
+
+    //console.log(req);
     // Create new user object.
     var userObj = new User(
-	{username: req.body.new_user}
+	{username: new_user}
     );
 
     // Check if username exists in db ....
-    User.findOne({ 'username': req.body.new_user })
+    User.findOne({ 'username': new_user })
         .exec( function(err, found_user) {
             if (err) { return next(err); }
             if (found_user) {
