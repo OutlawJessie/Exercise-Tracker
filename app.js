@@ -4,9 +4,6 @@ var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var path = require('path');
 
-// Load controller(s).
-
-
 // Start express app.
 var app = express();
 
@@ -43,21 +40,10 @@ app.route('/')
       res.sendFile(process.cwd() + '/views/index.html');
   });
 
-
-var testRouter = require('./routes/test');
+// Call api router.
 var apiRouter = require('./routes/apiRouter');
-
-
-app.use('/test', testRouter);
 app.use('/api', apiRouter);
 
-/*test */
-/*
-app.route('/test')
-    .get(function(req, res) {
-	res.send('working');
-    });
-*/
 
 // Listen on port 3000.
 app.listen(process.env.PORT || 3000, function () {
