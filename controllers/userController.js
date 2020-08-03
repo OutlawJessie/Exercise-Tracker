@@ -72,12 +72,12 @@ Example Output:
     {
       description: 'kettle bells',
       duration: 2,
-      date: 1999-10-04T00:00:00.000Z
+      date: Mon Jan 09 2010
     },
     {
       description: 'treadmill run',
       duration: 20,
-      date: 1990-10-04T00:00:00.000Z
+      date: Sat Dec 04 2020
     }
   ]
 }
@@ -114,7 +114,7 @@ const makeWorkoutLog = (user, workouts, start, end, limit) => {
 		return false;
 	    }
     }).map( (obj, i) => { // only keep description, duration, and date keys
-	    return {'description': obj.description, 'duration': obj.duration, 'date': obj.date};	    
+	return {'description': obj.description, 'duration': obj.duration, 'date': (new Date (obj.date)).toDateString()}; // FCC requires special date string format!	    
 	});
 
     

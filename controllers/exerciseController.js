@@ -5,10 +5,6 @@ var async = require('async')
 // Create a new exercise for an existing user.
 exports.post_exercise = function(req, res, next) {
 
-    //console.log( 'date is: ' + req.body.date  );
-    //console.log(  (req.body.date === '') );
-    //res.send(req.body);
-
     User.findById(req.body.userId, (err, user) => {
 	if (err){return next(err);}
 
@@ -37,7 +33,7 @@ exports.post_exercise = function(req, res, next) {
 		let fccRequirement = JSON.parse(JSON.stringify(user));
 		fccRequirement['description'] = exerciseObj['description'];
 		fccRequirement['duration'] = exerciseObj['duration'];
-		fccRequirement['date'] = exerciseObj['date'];
+		fccRequirement['date'] = (new Date(exerciseObj['date'])).toDateString(); // Free Code Camp Tests demand this format (example: Wed Jul 29 2020)
 		res.json(fccRequirement);
 
 		
