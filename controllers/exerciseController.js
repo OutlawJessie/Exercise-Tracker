@@ -5,6 +5,9 @@ var async = require('async')
 // Create a new exercise for an existing user.
 exports.post_exercise = function(req, res, next) {
 
+    //console.log(req.body.date);
+    // req.body.date === '' will be false below since it is undefined in some cases.
+    
     User.findById(req.body.userId, (err, user) => {
 	if (err){return next(err);}
 
@@ -19,7 +22,7 @@ exports.post_exercise = function(req, res, next) {
 		userId: req.body.userId,
 		description: req.body.description,
 		duration: req.body.duration,
-		date: (req.body.date === '') ? (Date.now()) : (req.body.date)
+		date: (req.body.date === '' || req.body.date === undefined) ? (Date.now()) : (req.body.date)
 	    });
 
 	    // Save the new exercise workout info to database.
