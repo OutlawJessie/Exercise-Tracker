@@ -37,6 +37,7 @@ exports.post_exercise = function(req, res, next) {
 		fccRequirement['description'] = exerciseObj['description'];
 		fccRequirement['duration'] = exerciseObj['duration'];
 		fccRequirement['date'] = (new Date(exerciseObj['date'])).toDateString(); // Free Code Camp Tests demand this format (example: Wed Jul 29 2020)
+		delete fccRequirement['__v']; // FCC examples don't show the version key, and tests will not pass without deletion.
 		res.json(fccRequirement);
 
 		
