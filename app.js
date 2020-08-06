@@ -45,6 +45,11 @@ var apiRouter = require('./routes/apiRouter');
 app.use('/api', apiRouter);
 
 
+// Add page for not found 404 error.
+app.use(function(req, res, next){
+   res.status(404);
+   res.type('txt').send('Page Not Found');
+ });
 // Listen on port 3000.
 app.listen(process.env.PORT || 3000, function () {
   console.log('server.js is listening on port 3000');
